@@ -1,0 +1,34 @@
+clc;
+clear all;
+syms f(x);
+eqn="a(d2x/dt2)+b(dy/dx)+cy+d=0";
+disp(eqn)
+ask="enter the values of a,b,c,d";
+disp(ask)
+aska='enter the value of a';
+a=input(aska);
+askb='enter the value of b';
+b=input(askb);
+askc='enter the value of c';
+c=input(askc);
+askd='enter the value of d';
+d=input(askd);
+ask2='enter the value of y(0)';
+y0=input(ask2);
+ask3='enter value of t';
+t=input(ask3);
+ask4='enter value of y(t)';
+yt=input(ask4);
+syms m;
+v1=y0;
+v2=-(((c*y0+d)/a)*((t^2)/2));
+v3=((c*b*y0+d*b)/(a^2))*((t^3)/6);
+vm1=t;
+vm2=-((b/a)*((t^2)/2))
+vm3=(((b^2)/(a^2))-(c/a))*((t^3)/6);
+m=(yt-(v1+v2+v3))/(vm1+vm2+vm3)
+f0=y0;
+f1=m;
+f2=(b*m+c*y0+d)*(-1/a);
+f3=(b*f2+c*m)*(-1/a);
+f(x)=f0+f1*x+(f2*x^2)/2+(f3*x^3)/6
